@@ -1,0 +1,26 @@
+.titulo{
+    padding: 10px;
+    text-align: center;
+    font-family: 'Oswald', sans-serif;
+}
+
+.container{
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    min-height: 100vh
+}
+.card:hover {
+    background-color: rgba(191, 191, 191, 0.316);
+    border-radius: 2px;
+    transition: all 0.5s;
+}
+
+.card{
+    text-align: center;
+    margin: 10px;
+}
+.body{
+    background-color: rgba(249, 240, 228, 0.259);
+}
