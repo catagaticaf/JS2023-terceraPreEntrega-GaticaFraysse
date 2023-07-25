@@ -1,5 +1,5 @@
 
-function tercerEntrega(){
+
 
 // clase constructora para cargar los productos;
 
@@ -97,9 +97,9 @@ function cargarProductos() {
 cargarProductos();
 
 //funcion de los botones para agregar al carrito
+carrito = [];
 
 function agregarAlCarrito() {
-  carrito = [];
   let productos = cargarProductos()
   let botones = document.getElementsByClassName("botones");
   for (const boton of botones) {
@@ -145,5 +145,3 @@ function obtenerLocalStorage(){
 obtenerLocalStorage()
 
 
-}
-tercerEntrega()
