@@ -97,21 +97,21 @@ function cargarProductos() {
 cargarProductos();
 
 //funcion de los botones para agregar al carrito
-carrito = [];
+let carrito = [];
 
 function agregarAlCarrito() {
-  let productos = cargarProductos()
-  let botones = document.getElementsByClassName("botones");
-  for (const boton of botones) {
-    boton.onclick = (e) => {
-      console.log(`Se agrego al carrito! El id del producto seleccionado es ${e.target.id}`);
-      let productoSeleccionado = productos.find((producto) => producto.id === parseInt(e.target.id))
-      carrito.push(productoSeleccionado);
-      console.log(carrito)
-    };
-  }
+	let productos = cargarProductos();
+	let botones = document.getElementsByClassName("botones");
+	for (const boton of botones) {
+		boton.onclick = (e) => {
+			console.log(`Se agrego al carrito! El id del producto seleccionado es ${e.target.id}`);
+			let productoSeleccionado = productos.find((producto) => producto.id === parseInt(e.target.id));
+			carrito.push(productoSeleccionado);
+			console.log(carrito);
+			localStorage.setItem("carrito", JSON.stringify(carrito));
+		};
+	}
 }
-
 
 function agregarCards() {
   let productos = cargarProductos();
@@ -137,7 +137,6 @@ agregarCards();
 agregarAlCarrito();
 
 //local storage
-localStorage.setItem('carrito', JSON.stringify(carrito))
 function obtenerLocalStorage(){
   const carrito = JSON.parse(localStorage.getItem('carrito'))
   console.log(carrito)
