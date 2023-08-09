@@ -19,3 +19,13 @@
     background-color: rgba(249, 240, 228, 0.259);
     margin: 20px;
 }
+.footer{
+    padding-top: 20px;
+    text-align: center;
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.2rem;
+}
+.navbar{
+    font-family: 'Oswald', sans-serif;
+    font-weight:300;
+}

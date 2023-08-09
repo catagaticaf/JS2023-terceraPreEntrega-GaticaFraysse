@@ -214,6 +214,10 @@ function agregarAlCarrito() {
         let productoSeleccionado = productos.find(
         (producto) => producto.id === parseInt(e.target.id)
         );
+        swal({
+            title: 'El producto se agrego correctamente al carrito!',
+            icon: 'success',
+        });
         carrito.push(productoSeleccionado);
         console.log(carrito);
         localStorage.setItem("carrito", JSON.stringify(carrito));
