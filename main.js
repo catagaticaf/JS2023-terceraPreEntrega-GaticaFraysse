@@ -3,7 +3,7 @@
 
 // clase constructora para cargar los productos;
 
-function cargarProductos() {
+/*function cargarProductos() {
   const productos = [];
   class Producto {
     constructor(nombre, precio, stock, id, tipo, img) {
@@ -95,7 +95,7 @@ function cargarProductos() {
   return productos
 }
 cargarProductos();
-
+*/
 //funcion de los botones para agregar al carrito
 let carrito = [];
 
@@ -116,7 +116,7 @@ function agregarAlCarrito() {
 		};
 	}
 }
-
+/*
 function agregarCards() {
   let productos = cargarProductos();
   let container = document.getElementById("contenedor-cards");
@@ -139,7 +139,7 @@ function agregarCards() {
 }
 agregarCards();
 agregarAlCarrito();
-
+*/
 //local storage
 function obtenerLocalStorage(){
   const carrito = JSON.parse(localStorage.getItem('carrito'))
@@ -147,4 +147,43 @@ function obtenerLocalStorage(){
 }
 obtenerLocalStorage()
 
+//function agregarFetch(){
+  //fetch('./productos.json')
+  //.then((response)=>response.json())
+  //.then((data)=>console.log(data))
+//}
 
+document.addEventListener('DOMContentLoaded',()=>{
+  fetchData()
+})
+
+const fetchData = async()=>{
+  try {
+    const resp = await fetch('productos.json')
+    const data = await resp.json()
+    //console.log(data)
+    pintarCards(data)
+  } catch (error) {
+    console.log(error)
+  }
+}
+
+const pintarCards = data =>{
+  let container = document.getElementById("contenedor-cards");
+  data.forEach(producto => {
+    let card = document.createElement("div");
+    card.innerHTML = `
+    <div class="col">
+          <div class="card">
+            <img src="./img/${producto.img}" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">${producto.nombre}</h5>
+              <p class="card-text">$${producto.precio}</p>
+              <a href="#" class="btn btn-light botones" id="${producto.id}">Agregar al carrito</a>
+            </div>
+          </div>
+        </div>
+    `;
+    container.appendChild(card);
+  });
+}
